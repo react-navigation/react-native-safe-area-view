@@ -6,32 +6,24 @@ This is a JS-only version of SafeAreaView that will be available in React Native
 
 Wrap components that touch any edge of the screen with SafeAreaView. 
 
-```JavaScript
-render() {
-  return(
-    <SafeAreaView>
-      <View>
-        <Text>Look, I'm safe!</Text>
-      </View>
-    </SafeAreaView>
-  );
-}
+```jsx
+<SafeAreaView>
+  <View>
+    <Text>Look, I'm safe!</Text>
+  </View>
+</SafeAreaView>
 ```
 
 ### forceInset
 
 Sometimes you will observe unexpected behavior and jank because SafeAreaView uses `onLayout` then calls `measureInWindow` on the view. If you know your view will touch certain edges, use `forceInset` to force it to apply the inset padding on the view. 
 
-```JavaScript
-render() {
-  return (
-    <SafeAreaView forceInset={{ top: 'always' }}>
-      <View>
-        <Text>Yeah, I'm safe too!</Text>
-      </View>
-    </SafeAreaView>
-  );
-}
+```jsx
+<SafeAreaView forceInset={{ top: 'always' }}>
+  <View>
+    <Text>Yeah, I'm safe too!</Text>
+  </View>
+</SafeAreaView>
 ```
 
 `forceInset` takes an object with the keys `top | bottom | left | right | vertical | horizontal` and the values `'always' | 'never'`. Or you can override the padding altogether by passing an integer.
