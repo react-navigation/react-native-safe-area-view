@@ -14,8 +14,10 @@
   "author": "Dave Pack (dave@expo.io)",
   "license": "MIT",
   "dependencies": {
-    "hoist-non-react-statics": "^2.3.1",
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.48.4"
+    "hoist-non-react-statics": "^2.3.1"
+  },
+  "peerDependencies": {
+    "react": "16.0.0",
+    "react-native": "^0.50.1"
   }
 }
