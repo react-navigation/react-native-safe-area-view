@@ -96,6 +96,7 @@ class SafeView extends Component {
 
     return (
       <View
+        pointerEvents={this.props.pointerEvents}
         ref={c => (this.view = c)}
         onLayout={this._onLayout}
         style={[style, safeAreaStyle]}
