@@ -101,7 +101,11 @@ class SafeView extends Component {
     const { forceInset = false, isLandscape, children, style } = this.props;
 
     if (Platform.OS !== 'ios') {
-      return <View style={style}>{this.props.children}</View>;
+      return (
+        <View style={style} pointerEvents='box-none'>
+          {this.props.children}
+        </View>
+      );
     }
 
     const safeAreaStyle = this._getSafeAreaStyle();
@@ -111,6 +115,7 @@ class SafeView extends Component {
         ref={c => (this.view = c)}
         onLayout={this._onLayout}
         style={safeAreaStyle}
+        pointerEvents='box-none'
       >
         {this.props.children}
       </View>
