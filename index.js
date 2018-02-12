@@ -7,7 +7,7 @@ import {
   Platform,
   StyleSheet,
   Animated,
-} from 'react-native';
+} from './PlatformHelper';
 import withOrientation from './withOrientation';
 
 // See https://mydevice.io/devices/ for device dimensions
