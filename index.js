@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
-  DeviceInfo,
   Dimensions,
   InteractionManager,
   NativeModules,
   Platform,
   StyleSheet,
   Animated,
-} from './PlatformHelper';
+} from './react-native';
+import { DeviceInfo } from './PlatformHelper';
 import withOrientation from './withOrientation';
 
 // See https://mydevice.io/devices/ for device dimensions
