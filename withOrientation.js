@@ -34,11 +34,15 @@ export default function<T: {}>(
     }
 
     componentDidMount() {
-      Dimensions.addEventListener('change', this.handleOrientationChange);
+      if (typeof Dimensions.addEventListener === 'function') {
+        Dimensions.addEventListener('change', this.handleOrientationChange);
+      }
     }
 
     componentWillUnmount() {
-      Dimensions.removeEventListener('change', this.handleOrientationChange);
+      if (typeof Dimensions.removeEventListener === 'function') {
+        Dimensions.removeEventListener('change', this.handleOrientationChange);  
+      }
     }
 
     handleOrientationChange = ({ window }: { window: WindowDimensions }) => {
