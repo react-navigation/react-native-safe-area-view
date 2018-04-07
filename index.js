@@ -196,10 +196,10 @@ class SafeView extends Component {
 
     const style = {
       ...viewStyle,
-      paddingTop: touchesTop ? this.getInset('top', isLandscape) : 0,
-      paddingBottom: touchesBottom ? this.getInset('bottom', isLandscape) : 0,
-      paddingLeft: touchesLeft ? this.getInset('left', isLandscape) : 0,
-      paddingRight: touchesRight ? this.getInset('right', isLandscape) : 0,
+      paddingTop: touchesTop ? SafeView.getInset('top', isLandscape) : 0,
+      paddingBottom: touchesBottom ? SafeView.getInset('bottom', isLandscape) : 0,
+      paddingLeft: touchesLeft ? SafeView.getInset('left', isLandscape) : 0,
+      paddingRight: touchesRight ? SafeView.getInset('right', isLandscape) : 0,
     };
 
     if (forceInset) {
@@ -207,7 +207,7 @@ class SafeView extends Component {
         let inset = forceInset[key];
 
         if (inset === 'always') {
-          inset = this.getInset(key, isLandscape);
+          inset = SafeView.getInset(key, isLandscape);
         }
 
         if (inset === 'never') {
