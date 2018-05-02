@@ -21,7 +21,7 @@ const { height: D_HEIGHT, width: D_WIDTH } = Dimensions.get('window');
 const { PlatformConstants = {} } = NativeModules;
 const { minor = 0 } = PlatformConstants.reactNativeVersion || {};
 
-const isIPhoneX = (() => {
+export const isIPhoneX = (() => {
   if (Platform.OS === 'web') return false;
 
   if (minor >= 50) {
@@ -35,7 +35,7 @@ const isIPhoneX = (() => {
   );
 })();
 
-const isIPad = (() => {
+export const isIPad = (() => {
   if (Platform.OS !== 'ios' || isIPhoneX) return false;
 
   // if portrait and width is smaller than iPad width
