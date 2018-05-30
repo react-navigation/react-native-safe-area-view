@@ -3,6 +3,10 @@
   "version": "0.8.0",
   "description": "JS only version of SafeAreaView for supporting iPhone X safe area insets.",
   "main": "index",
+  "repository": {
+    "url": "git@github.com:react-community/react-native-safe-area-view.git",
+    "type": "git"
+  },
   "scripts": {
     "test": "test"
   },
