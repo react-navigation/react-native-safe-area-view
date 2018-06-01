@@ -120,23 +120,22 @@ class SafeView extends Component {
   }
 
   render() {
-    const { forceInset = false, isLandscape, children, style } = this.props;
+    const { forceInset = false, isLandscape, style, ...props } = this.props;
 
     const safeAreaStyle = this._getSafeAreaStyle();
 
     return (
       <Animated.View
         ref={c => (this.view = c)}
+        pointerEvents='box-none'
+        {...props}
         onLayout={this._onLayout}
         style={safeAreaStyle}
-        pointerEvents='box-none'
-      >
-        {this.props.children}
-      </Animated.View>
+      />
     );
   }
 
-  _onLayout = () => {
+  _onLayout = (...args) => {
     if (!this.view) return;
 
     const { isLandscape } = this.props;
@@ -182,6 +181,8 @@ class SafeView extends Component {
         viewWidth: winWidth,
         viewHeight: winHeight,
       });
+      
+      if (this.props.onLayout) this.props.onLayout(...args);
     });
   };
 
