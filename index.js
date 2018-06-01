@@ -9,6 +9,8 @@ import {
   Animated,
 } from 'react-native';
 import withOrientation from './withOrientation';
+import withSafeArea from './withSafeArea';
+export { withSafeArea };
 
 // See https://mydevice.io/devices/ for device dimensions
 const X_WIDTH = 375;
