@@ -9,7 +9,7 @@ export default function (forceInset = {}) {
       render() {
         return (
           <SafeAreaView style={{ flex: 1 }} forceInset={forceInset}>
-            <WrappedComponent {...this.props} />;
+            <WrappedComponent {...this.props} />
           </SafeAreaView>
         );
       }
