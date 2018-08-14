@@ -96,9 +96,24 @@ const doubleFromPercentString = percent => {
   return dbl;
 };
 
+const MountedInstances = (() => {
+  let mountedInstances = [];
+  const add = instance => mountedInstances = [...mountedInstances,instance];
+  const remove = instance => mountedInstances = mountedInstances.filter(mountedInstance => mountedInstance !== instance);
+  const forceUpdate = () => mountedInstances.forEach(instance => instance.forceUpdate());
+  return {
+    add,
+    remove,
+    render,
+  };
+})();
+
 class SafeView extends Component {
-  static setStatusBarHeight = height => {
+  static setStatusBarHeight = (height, forceUpdate = true) => {
     _customStatusBarHeight = height;
+    if (forceUpdate) {
+      MountedInstances.forceUpdate();
+    }
   };
 
   state = {
@@ -112,6 +127,7 @@ class SafeView extends Component {
   };
 
   componentDidMount() {
+    MountedInstances.add(this);
     InteractionManager.runAfterInteractions(() => {
       this._onLayout();
     });
@@ -119,6 +135,10 @@ class SafeView extends Component {
 
   componentWillReceiveProps() {
     this._onLayout();
+  }
+
+  componentWillUnmount() {
+    MountedInstances.remove(this);
   }
 
   render() {
