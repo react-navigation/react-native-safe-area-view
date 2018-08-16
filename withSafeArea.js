@@ -3,8 +3,8 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import SafeAreaView from './';
 
-export default function (forceInset = {}) {
-  return (WrappedComponent) => {
+export default function(forceInset = {}) {
+  return WrappedComponent => {
     class withSafeArea extends Component {
       render() {
         return (

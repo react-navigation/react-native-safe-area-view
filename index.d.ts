@@ -1,19 +1,19 @@
-import { ComponentClass } from 'react'
-import { ViewProperties } from 'react-native'
+import { ComponentClass } from 'react';
+import { ViewProperties } from 'react-native';
 
-export type SafeAreaViewForceInsetValue = 'always' | 'never'
+export type SafeAreaViewForceInsetValue = 'always' | 'never';
 
 export interface SafeAreaViewProps extends ViewProperties {
   forceInset?: {
-    top?: SafeAreaViewForceInsetValue
-    bottom?: SafeAreaViewForceInsetValue
-    left?: SafeAreaViewForceInsetValue
-    right?: SafeAreaViewForceInsetValue
-    horizontal?: SafeAreaViewForceInsetValue
-    vertical?: SafeAreaViewForceInsetValue
-  }
+    top?: SafeAreaViewForceInsetValue;
+    bottom?: SafeAreaViewForceInsetValue;
+    left?: SafeAreaViewForceInsetValue;
+    right?: SafeAreaViewForceInsetValue;
+    horizontal?: SafeAreaViewForceInsetValue;
+    vertical?: SafeAreaViewForceInsetValue;
+  };
 }
 
-export const SafeAreaView: ComponentClass<SafeAreaViewProps>
+export const SafeAreaView: ComponentClass<SafeAreaViewProps>;
 
-export default SafeAreaView
+export default SafeAreaView;
