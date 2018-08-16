@@ -112,6 +112,7 @@ class SafeView extends Component {
   };
 
   componentDidMount() {
+    this.view._component.__isMounted = true;
     InteractionManager.runAfterInteractions(() => {
       this._onLayout();
     });
@@ -119,6 +120,10 @@ class SafeView extends Component {
 
   componentWillReceiveProps() {
     this._onLayout();
+  }
+
+  componentWillUnmount() {
+    this.view._component.__isMounted = false;
   }
 
   render() {
@@ -129,7 +134,7 @@ class SafeView extends Component {
     return (
       <Animated.View
         ref={c => (this.view = c)}
-        pointerEvents='box-none'
+        pointerEvents="box-none"
         {...props}
         onLayout={this._onLayout}
         style={safeAreaStyle}
@@ -160,13 +165,13 @@ class SafeView extends Component {
       if (realY >= HEIGHT) {
         realY = realY % HEIGHT;
       } else if (realY < 0) {
-        realY = realY % HEIGHT + HEIGHT;
+        realY = (realY % HEIGHT) + HEIGHT;
       }
 
       if (realX >= WIDTH) {
         realX = realX % WIDTH;
       } else if (realX < 0) {
-        realX = realX % WIDTH + WIDTH;
+        realX = (realX % WIDTH) + WIDTH;
       }
 
       const touchesTop = realY === 0;
@@ -183,7 +188,7 @@ class SafeView extends Component {
         viewWidth: winWidth,
         viewHeight: winHeight,
       });
-      
+
       if (this.props.onLayout) this.props.onLayout(...args);
     });
   };
