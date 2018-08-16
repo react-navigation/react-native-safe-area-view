@@ -112,6 +112,7 @@ class SafeView extends Component {
   };
 
   componentDidMount() {
+    this.view._component.__isMounted = true;
     InteractionManager.runAfterInteractions(() => {
       this._onLayout();
     });
@@ -119,6 +120,10 @@ class SafeView extends Component {
 
   componentWillReceiveProps() {
     this._onLayout();
+  }
+
+  componentWillUnmount() {
+    this.view._component.__isMounted = false;
   }
 
   render() {
