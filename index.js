@@ -8,9 +8,9 @@ import {
   StyleSheet,
   Animated,
 } from 'react-native';
+import hoistStatics from 'hoist-non-react-statics';
+
 import withOrientation from './withOrientation';
-import withSafeArea from './withSafeArea';
-export { withSafeArea };
 
 // See https://mydevice.io/devices/ for device dimensions
 const X_WIDTH = 375;
@@ -183,7 +183,7 @@ class SafeView extends Component {
         viewWidth: winWidth,
         viewHeight: winHeight,
       });
-      
+
       if (this.props.onLayout) this.props.onLayout(...args);
     });
   };
@@ -320,4 +320,24 @@ class SafeView extends Component {
   };
 }
 
-export default withOrientation(SafeView);
+const SafeAreaView = withOrientation(SafeView);
+
+export default SafeAreaView;
+
+const withSafeArea = function (forceInset = {}) {
+  return (WrappedComponent) => {
+    class withSafeArea extends Component {
+      render() {
+        return (
+          <SafeAreaView style={{ flex: 1 }} forceInset={forceInset}>
+            <WrappedComponent {...this.props} />
+          </SafeAreaView>
+        );
+      }
+    }
+
+    return hoistStatics(withSafeArea, WrappedComponent);
+  };
+}
+
+export { withSafeArea };
