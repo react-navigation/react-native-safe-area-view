@@ -137,9 +137,16 @@ class SafeView extends Component {
     );
   }
 
-  _onLayout = (...args) => {
+  _onLayout = (info, ...args) => {
     if (!this.view) return;
+    if (!info || !info.nativeEvent) {
+      if (this.props.onLayout) {
+        this.props.onLayout(...args);
+        return;
+      }
+    }
 
+    const { layout } = info.nativeEvent;
     const { isLandscape } = this.props;
     const { orientation } = this.state;
     const newOrientation = isLandscape ? 'landscape' : 'portrait';
@@ -150,42 +157,37 @@ class SafeView extends Component {
     const WIDTH = isLandscape ? X_HEIGHT : X_WIDTH;
     const HEIGHT = isLandscape ? X_WIDTH : X_HEIGHT;
 
-    this.view._component.measureInWindow((winX, winY, winWidth, winHeight) => {
-      if (!this.view) {
-        return;
-      }
-      let realY = winY;
-      let realX = winX;
+    let realY = layout.y;
+    let realX = layout.x;
 
-      if (realY >= HEIGHT) {
-        realY = realY % HEIGHT;
-      } else if (realY < 0) {
-        realY = realY % HEIGHT + HEIGHT;
-      }
+    if (realY >= HEIGHT) {
+      realY = realY % HEIGHT;
+    } else if (realY < 0) {
+      realY = (realY % HEIGHT) + HEIGHT;
+    }
 
-      if (realX >= WIDTH) {
-        realX = realX % WIDTH;
-      } else if (realX < 0) {
-        realX = realX % WIDTH + WIDTH;
-      }
+    if (realX >= WIDTH) {
+      realX = realX % WIDTH;
+    } else if (realX < 0) {
+      realX = (realX % WIDTH) + WIDTH;
+    }
 
-      const touchesTop = realY === 0;
-      const touchesBottom = realY + winHeight >= HEIGHT;
-      const touchesLeft = realX === 0;
-      const touchesRight = realX + winWidth >= WIDTH;
+    const touchesTop = realY === 0;
+    const touchesBottom = realY + layout.height >= HEIGHT;
+    const touchesLeft = realX === 0;
+    const touchesRight = realX + layout.width >= WIDTH;
 
-      this.setState({
-        touchesTop,
-        touchesBottom,
-        touchesLeft,
-        touchesRight,
-        orientation: newOrientation,
-        viewWidth: winWidth,
-        viewHeight: winHeight,
-      });
-      
-      if (this.props.onLayout) this.props.onLayout(...args);
+    this.setState({
+      touchesTop,
+      touchesBottom,
+      touchesLeft,
+      touchesRight,
+      orientation: newOrientation,
+      viewWidth: layout.width,
+      viewHeight: layout.height
     });
+
+    if (this.props.onLayout) this.props.onLayout(...args);
   };
 
   _getSafeAreaStyle = () => {
