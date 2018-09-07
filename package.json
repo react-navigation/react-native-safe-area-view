@@ -1,6 +1,6 @@
 {
   "name": "react-native-safe-area-view",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "JS only version of SafeAreaView for supporting iPhone X safe area insets.",
   "main": "index",
   "repository": {
