@@ -32,6 +32,7 @@ const isIPhoneX = (() => {
 
   return (
     Platform.OS === 'ios' &&
+    !Platform.isPad &&
     ((D_HEIGHT >= X_HEIGHT && D_WIDTH >= X_WIDTH) ||
       (D_HEIGHT >= X_WIDTH && D_WIDTH >= X_HEIGHT))
   );
