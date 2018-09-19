@@ -24,7 +24,7 @@ const { height: D_HEIGHT, width: D_WIDTH } = Dimensions.get('window');
 const { PlatformConstants = {} } = NativeModules;
 const { minor = 0 } = PlatformConstants.reactNativeVersion || {};
 
-const isIPhoneX = (() => {
+export const isIPhoneX = (() => {
   if (Platform.OS === 'web') return false;
 
   return (
@@ -36,7 +36,7 @@ const isIPhoneX = (() => {
   );
 })();
 
-const isIPad = (() => {
+export const isIPad = (() => {
   if (Platform.OS !== 'ios' || isIPhoneX) return false;
 
   // if portrait and width is smaller than iPad width
@@ -53,7 +53,7 @@ const isIPad = (() => {
 })();
 
 let _customStatusBarHeight = null;
-const statusBarHeight = isLandscape => {
+export const statusBarHeight = isLandscape => {
   if (_customStatusBarHeight !== null) {
     return _customStatusBarHeight;
   }
@@ -83,7 +83,7 @@ const statusBarHeight = isLandscape => {
   return isLandscape ? 0 : 20;
 };
 
-const doubleFromPercentString = percent => {
+export const doubleFromPercentString = percent => {
   if (!percent.includes('%')) {
     return 0;
   }
