@@ -116,9 +116,14 @@ class SafeView extends Component {
   };
 
   componentDidMount() {
+    this._isMounted = true;
     InteractionManager.runAfterInteractions(() => {
       this._onLayout();
     });
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   componentWillReceiveProps() {
@@ -142,6 +147,7 @@ class SafeView extends Component {
   }
 
   _onLayout = (...args) => {
+    if (!this._isMounted) return;
     if (!this.view) return;
 
     const { isLandscape } = this.props;
