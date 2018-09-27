@@ -1,9 +1,9 @@
 import { ComponentClass } from 'react'
-import { ViewProperties } from 'react-native'
+import { ViewProps } from 'react-native'
 
 export type SafeAreaViewForceInsetValue = 'always' | 'never'
 
-export interface SafeAreaViewProps extends ViewProperties {
+export interface SafeAreaViewProps extends ViewProps {
   forceInset?: {
     top?: SafeAreaViewForceInsetValue
     bottom?: SafeAreaViewForceInsetValue
