@@ -6,6 +6,7 @@ import {
   Platform,
   StyleSheet,
   Animated,
+  StatusBar
 } from 'react-native';
 import hoistStatics from 'hoist-non-react-statics';
 
@@ -67,6 +68,12 @@ const statusBarHeight = isLandscape => {
   if (Platform.OS === 'android') {
     if (global.Expo) {
       return global.Expo.Constants.statusBarHeight;
+    } else if (StatusBar && StatusBar.currentHeight) {
+      if (Platform.Version <= 18) {
+        return 0;
+      } else {
+        return StatusBar.currentHeight;
+      }
     } else {
       return 0;
     }
@@ -115,6 +122,7 @@ class SafeView extends Component {
     InteractionManager.runAfterInteractions(() => {
       this._onLayout();
     });
+    if (Platform.OS === 'android') setImmediate(this._onLayout)
   }
 
   componentWillUnmount() {
@@ -152,15 +160,22 @@ class SafeView extends Component {
       return;
     }
 
-    const WIDTH = isLandscape ? X_HEIGHT : X_WIDTH;
-    const HEIGHT = isLandscape ? X_WIDTH : X_HEIGHT;
-
     this.view._component.measureInWindow((winX, winY, winWidth, winHeight) => {
       if (!this.view) {
         return;
       }
-      let realY = winY;
-      let realX = winX;
+
+      if (Platform.OS === 'android') {
+        if (winWidth === 0) return
+
+        winY += statusBarHeight(isLandscape)
+        winY = Math.floor(winY)
+      }
+
+      const { height: HEIGHT, width: WIDTH  } = Dimensions.get('screen')
+
+      let realY = winY
+      let realX = winX
 
       if (realY >= HEIGHT) {
         realY = realY % HEIGHT;
