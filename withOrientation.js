@@ -25,7 +25,7 @@ export const isOrientationLandscape = ({
 export default function<T: {}>(
   WrappedComponent: React.ComponentType<T & InjectedProps>
 ) {
-  class withOrientation extends React.Component<T, State> {
+  class WithOrientation extends React.Component<T, State> {
     constructor() {
       super();
 
@@ -51,9 +51,12 @@ export default function<T: {}>(
     };
 
     render() {
-      return <WrappedComponent {...this.props} {...this.state} />;
+      const { forwardedRef, ...props } = this.props;
+      return <WrappedComponent ref={forwardedRef} {...props} {...this.state} />;
     }
   }
 
-  return hoistNonReactStatic(withOrientation, WrappedComponent);
+  const WithOrientationAndForwardedRef = React.forwardRef((props, ref) => <WithOrientation {...props} forwardedRef={ref} />);
+
+  return hoistNonReactStatic(WithOrientationAndForwardedRef, WrappedComponent);
 }
