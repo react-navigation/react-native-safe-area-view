@@ -41,7 +41,7 @@ const isIPhoneX = (() => {
 })();
 
 const isNewIPadPro = (() => {
-  if (Platform.OS === 'web') return false;
+  if (Platform.OS !== 'ios') return false;
 
   return (
     Platform.OS === 'ios' &&
