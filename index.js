@@ -43,13 +43,10 @@ const isIPhoneX = (() => {
 const isNewIPadPro = (() => {
   if (Platform.OS !== 'ios') return false;
 
-  return (
-    Platform.OS === 'ios' &&
-    ((D_HEIGHT === IPADPRO11_HEIGHT && D_WIDTH === IPADPRO11_WIDTH) ||
+  return ((D_HEIGHT === IPADPRO11_HEIGHT && D_WIDTH === IPADPRO11_WIDTH) ||
       (D_HEIGHT === IPADPRO11_WIDTH && D_WIDTH === IPADPRO11_HEIGHT)) ||
     ((D_HEIGHT === IPADPRO129_HEIGHT && D_WIDTH === IPADPRO129_WIDTH) ||
-        (D_HEIGHT === IPADPRO129_WIDTH && D_WIDTH === IPADPRO129_HEIGHT))
-  );
+        (D_HEIGHT === IPADPRO129_WIDTH && D_WIDTH === IPADPRO129_HEIGHT));
 })();
 
 const isIPad = (() => {
