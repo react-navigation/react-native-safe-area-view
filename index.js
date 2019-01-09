@@ -32,21 +32,23 @@ const isIPhoneX = (() => {
   if (Platform.OS === 'web') return false;
 
   return (
-    Platform.OS === 'ios' &&
-    ((D_HEIGHT === X_HEIGHT && D_WIDTH === X_WIDTH) ||
-      (D_HEIGHT === X_WIDTH && D_WIDTH === X_HEIGHT)) ||
+    (Platform.OS === 'ios' &&
+      ((D_HEIGHT === X_HEIGHT && D_WIDTH === X_WIDTH) ||
+        (D_HEIGHT === X_WIDTH && D_WIDTH === X_HEIGHT))) ||
     ((D_HEIGHT === XSMAX_HEIGHT && D_WIDTH === XSMAX_WIDTH) ||
-        (D_HEIGHT === XSMAX_WIDTH && D_WIDTH === XSMAX_HEIGHT))
+      (D_HEIGHT === XSMAX_WIDTH && D_WIDTH === XSMAX_HEIGHT))
   );
 })();
 
 const isNewIPadPro = (() => {
   if (Platform.OS !== 'ios') return false;
 
-  return ((D_HEIGHT === IPADPRO11_HEIGHT && D_WIDTH === IPADPRO11_WIDTH) ||
-      (D_HEIGHT === IPADPRO11_WIDTH && D_WIDTH === IPADPRO11_HEIGHT)) ||
+  return (
+    (D_HEIGHT === IPADPRO11_HEIGHT && D_WIDTH === IPADPRO11_WIDTH) ||
+    (D_HEIGHT === IPADPRO11_WIDTH && D_WIDTH === IPADPRO11_HEIGHT) ||
     ((D_HEIGHT === IPADPRO129_HEIGHT && D_WIDTH === IPADPRO129_WIDTH) ||
-        (D_HEIGHT === IPADPRO129_WIDTH && D_WIDTH === IPADPRO129_HEIGHT));
+      (D_HEIGHT === IPADPRO129_WIDTH && D_WIDTH === IPADPRO129_HEIGHT))
+  );
 })();
 
 const isIPad = (() => {
@@ -150,7 +152,7 @@ class SafeView extends Component {
     return (
       <Animated.View
         ref={c => (this.view = c)}
-        pointerEvents='box-none'
+        pointerEvents="box-none"
         {...props}
         onLayout={this._onLayout}
         style={safeAreaStyle}
@@ -182,13 +184,13 @@ class SafeView extends Component {
       if (realY >= HEIGHT) {
         realY = realY % HEIGHT;
       } else if (realY < 0) {
-        realY = realY % HEIGHT + HEIGHT;
+        realY = (realY % HEIGHT) + HEIGHT;
       }
 
       if (realX >= WIDTH) {
         realX = realX % WIDTH;
       } else if (realX < 0) {
-        realX = realX % WIDTH + WIDTH;
+        realX = (realX % WIDTH) + WIDTH;
       }
 
       const touchesTop = realY === 0;
@@ -354,8 +356,8 @@ const SafeAreaView = withOrientation(SafeView);
 
 export default SafeAreaView;
 
-const withSafeArea = function (forceInset = {}) {
-  return (WrappedComponent) => {
+const withSafeArea = function(forceInset = {}) {
+  return WrappedComponent => {
     class withSafeArea extends Component {
       render() {
         return (
@@ -368,6 +370,6 @@ const withSafeArea = function (forceInset = {}) {
 
     return hoistStatics(withSafeArea, WrappedComponent);
   };
-}
+};
 
 export { withSafeArea };
