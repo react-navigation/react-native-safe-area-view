@@ -14,6 +14,4 @@ export interface SafeAreaViewProps extends ViewProperties {
   }
 }
 
-export const SafeAreaView: ComponentClass<SafeAreaViewProps>
-
-export default SafeAreaView
+export default ComponentClass<SafeAreaViewProps>
