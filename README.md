@@ -14,7 +14,7 @@ Wrap components that touch any edge of the screen with SafeAreaView.
 </SafeAreaView>
 ```
 
-Get height of the SafeArea from a specific side.
+Get height of a specific side from the SafeArea.
 
 ```jsx
 ...
