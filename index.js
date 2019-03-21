@@ -327,30 +327,34 @@ class SafeView extends Component {
 
   _getInset = key => {
     const { isLandscape } = this.props;
-    switch (key) {
-      case 'horizontal':
-      case 'right':
-      case 'left': {
-        return isLandscape ? (isIPhoneX ? 44 : 0) : 0;
-      }
-      case 'vertical':
-      case 'top': {
-        return statusBarHeight(isLandscape);
-      }
-      case 'bottom': {
-        if (isIPhoneX) {
-          return isLandscape ? 24 : 34;
-        }
-
-        if (isNewIPadPro) {
-          return 20;
-        }
-
-        return 0;
-      }
-    }
+    return getHeight( key, isLandscape);
   };
 }
+
+export function getHeight(key, isLandscape){
+  switch (key) {
+    case 'horizontal':
+    case 'right':
+    case 'left': {
+      return isLandscape ? (isIPhoneX ? 44 : 0) : 0;
+    }
+    case 'vertical':
+    case 'top': {
+      return statusBarHeight(isLandscape);
+    }
+    case 'bottom': {
+      if (isIPhoneX) {
+        return isLandscape ? 24 : 34;
+      }
+
+      if (isNewIPadPro) {
+        return 20;
+      }
+
+      return 0;
+    }
+  }
+};
 
 const SafeAreaView = withOrientation(SafeView);
 
