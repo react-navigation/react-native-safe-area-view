@@ -14,6 +14,17 @@ Wrap components that touch any edge of the screen with SafeAreaView.
 </SafeAreaView>
 ```
 
+Get height of the SafeAreaView for a specify side.
+
+```jsx
+...
+const { width, height } = Dimensions.get('window');
+import { getHeight } from 'react-native-safe-area-view';
+
+const landScape = width > height;
+const bottomPadding = getHeight('bottom', landScape);
+```
+
 ### forceInset
 
 Sometimes you will observe unexpected behavior and jank because SafeAreaView uses `onLayout` then calls `measureInWindow` on the view. If you know your view will touch certain edges, use `forceInset` to force it to apply the inset padding on the view.
