@@ -327,11 +327,11 @@ class SafeView extends Component {
 
   _getInset = key => {
     const { isLandscape } = this.props;
-    return getHeight( key, isLandscape);
+    return getInset( key, isLandscape);
   };
 }
 
-export function getHeight(key, isLandscape){
+export function getInset(key, isLandscape){
   switch (key) {
     case 'horizontal':
     case 'right':
