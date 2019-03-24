@@ -19,10 +19,10 @@ Get height of a specific side from the SafeArea.
 ```jsx
 ...
 const { width, height } = Dimensions.get('window');
-import { getHeight } from 'react-native-safe-area-view';
+import { getInset } from 'react-native-safe-area-view';
 
 const landScape = width > height;
-const bottomPadding = getHeight('bottom', landScape);
+const bottomPadding = getInset('bottom', landScape);
 ```
 
 ### forceInset
