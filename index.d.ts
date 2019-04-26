@@ -16,6 +16,6 @@ export interface SafeAreaViewProps extends ViewProperties {
 
 export const SafeAreaView: ComponentClass<SafeAreaViewProps>
 
-export const withSafeArea: <P extends object>(safeAreaViewProps?: SafeAreaViewProps) => (Component: React.ComponentType<P>) => ComponentClass<P & SafeAreaViewProps>
+export const withSafeArea: <P extends object>(safeAreaViewProps?: SafeAreaViewProps) => (Component: React.ComponentType<P>) => React.ComponentType<P & SafeAreaViewProps>
 
 export default SafeAreaView
