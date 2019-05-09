@@ -140,7 +140,7 @@ class SafeView extends Component {
     this._isMounted = false;
   }
 
-  componentWillReceiveProps() {
+  componentDidUpdate() {
     this._onLayout();
   }
 
