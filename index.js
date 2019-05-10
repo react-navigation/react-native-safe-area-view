@@ -25,9 +25,9 @@ const IPADPRO129_WIDTH = 1366;
 
 const getResolvedDimensions = () => {
   const { width, height } = Dimensions.get('window');
-  if(width === 0 && height === 0) return Dimensions.get('screen');
+  if (width === 0 && height === 0) return Dimensions.get('screen');
   return { width, height };
-}
+};
 
 const { height: D_HEIGHT, width: D_WIDTH } = getResolvedDimensions();
 
@@ -332,11 +332,11 @@ class SafeView extends Component {
 
   _getInset = key => {
     const { isLandscape } = this.props;
-    return getInset( key, isLandscape);
+    return getInset(key, isLandscape);
   };
 }
 
-export function getInset(key, isLandscape){
+export function getInset(key, isLandscape) {
   switch (key) {
     case 'horizontal':
     case 'right':
@@ -359,7 +359,7 @@ export function getInset(key, isLandscape){
       return 0;
     }
   }
-};
+}
 
 const SafeAreaView = withOrientation(SafeView);
 
