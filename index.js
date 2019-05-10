@@ -365,7 +365,7 @@ const SafeAreaView = withOrientation(SafeView);
 
 export default SafeAreaView;
 
-const withSafeArea = function(forceInset = {}) {
+export const withSafeArea = function(forceInset = {}) {
   return WrappedComponent => {
     class withSafeArea extends Component {
       render() {
@@ -380,5 +380,3 @@ const withSafeArea = function(forceInset = {}) {
     return hoistStatics(withSafeArea, WrappedComponent);
   };
 };
-
-export { withSafeArea };
