@@ -179,7 +179,7 @@ class SafeView extends Component {
 
     const { width: WIDTH, height: HEIGHT } = getResolvedDimensions();
 
-    this.view._component.measureInWindow((winX, winY, winWidth, winHeight) => {
+    this.view.getNode().measureInWindow((winX, winY, winWidth, winHeight) => {
       if (!this.view) {
         return;
       }
