@@ -74,6 +74,7 @@ const isIPad = (() => {
 })();
 
 let _customStatusBarHeight = null;
+let _customStatusBarHidden = null;
 const statusBarHeight = isLandscape => {
   if (_customStatusBarHeight !== null) {
     return _customStatusBarHeight;
@@ -102,10 +103,10 @@ const statusBarHeight = isLandscape => {
   }
 
   if (isIPad) {
-    return 20;
+    return _customStatusBarHidden ? 0 : 20;
   }
 
-  return isLandscape ? 0 : 20;
+  return (isLandscape || _customStatusBarHidden) ? 0 : 20;
 };
 
 const doubleFromPercentString = percent => {
@@ -123,6 +124,10 @@ const doubleFromPercentString = percent => {
 class SafeView extends Component {
   static setStatusBarHeight = height => {
     _customStatusBarHeight = height;
+  };
+
+  static setStatusBarHidden = hidden => {
+    _customStatusBarHidden = hidden;
   };
 
   state = {
