@@ -361,6 +361,10 @@ export function getInset(key, isLandscape) {
   }
 }
 
+export function getStatusBarHeight(isLandscape) {
+  return statusBarHeight(isLandscape);
+}
+
 const SafeAreaView = withOrientation(SafeView);
 
 export default SafeAreaView;

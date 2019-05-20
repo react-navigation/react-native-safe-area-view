@@ -14,6 +14,8 @@ export interface SafeAreaViewProps extends ViewProperties {
   };
 }
 
+export const getStatusBarHeight: (isLandscape?: boolean) => number;
+
 export const getInset: (
   key: 'top' | 'right' | 'bottom' | 'left',
   isLandscape?: boolean
