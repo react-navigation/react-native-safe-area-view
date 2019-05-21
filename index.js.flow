@@ -21,4 +21,4 @@ export default class SafeAreaView extends React$Component<SafeAreaViewProps> {}
 
 declare export function withSafeArea(
   forceInset?: ?ForceInset
-): (WrappedComponent: React$ComponentType<*>) => WrappedComponent;
+): <T: React$ComponentType<*>>(WrappedComponent: T) => T;

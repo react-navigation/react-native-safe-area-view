@@ -41,7 +41,7 @@ export default function<T: {}>(
 
     componentWillUnmount() {
       if (typeof Dimensions.removeEventListener === 'function') {
-        Dimensions.removeEventListener('change', this.handleOrientationChange);  
+        Dimensions.removeEventListener('change', this.handleOrientationChange);
       }
     }
 
