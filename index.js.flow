@@ -22,3 +22,8 @@ export default class SafeAreaView extends React$Component<SafeAreaViewProps> {}
 declare export function withSafeArea(
   forceInset?: ?ForceInset
 ): <T: React$ComponentType<*>>(WrappedComponent: T) => T;
+
+declare export function getInset(
+  value: 'horizontal' | 'right' | 'left' | 'vertical' | 'top' | 'bottom',
+  isLandscape: boolean
+): number
