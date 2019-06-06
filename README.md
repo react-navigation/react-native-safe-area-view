@@ -2,6 +2,12 @@
 
 This is a JS-only version of React Native's SafeAreaView, it adds a small api that makes SafeAreaView more flexible for complex UIs.
 
+## Installation
+
+```
+npm install react-native-safe-area-view
+```
+
 ## Usage
 
 Wrap components that touch any edge of the screen with SafeAreaView.
