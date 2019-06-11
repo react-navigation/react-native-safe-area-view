@@ -28,14 +28,14 @@ function getSupportedTransitionEvent() {
 }
 
 function getSupportedEnv() {
-  if (!window.CSS || typeof window.CSS.supports != 'function') {
-    return null;
-  } else if (CSS.supports('top: env(safe-area-inset-top)')) {
-    return 'env';
-  } else if (CSS.supports('top: constant(safe-area-inset-top)')) {
+  if (
+    window.CSS &&
+    window.CSS.supports &&
+    CSS.supports('top: constant(safe-area-inset-top)')
+  ) {
     return 'constant';
   }
-  return null;
+  return 'env';
 }
 
 function getPassiveEvents() {
