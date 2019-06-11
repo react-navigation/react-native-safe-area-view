@@ -1,5 +1,5 @@
 {
-  "main": "./index",
+  "main": "node_modules/expo/AppEntry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -7,10 +7,10 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^32.0.6",
-    "react": "16.5.0",
+    "expo": "^33.0.0",
+    "react": "16.8.3",
     "react-dom": "^16.8.6",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-web": "^0.11.4",
     "react-native-safe-area-view": "../react-native-safe-area-view-v0.13.1.tgz"
   },
