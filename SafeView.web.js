@@ -28,9 +28,10 @@ function getSupportedTransitionEvent() {
 }
 
 function getSupportedEnv() {
+  const { CSS } = window;
   if (
-    window.CSS &&
-    window.CSS.supports &&
+    CSS &&
+    CSS.supports &&
     CSS.supports('top: constant(safe-area-inset-top)')
   ) {
     return 'constant';
