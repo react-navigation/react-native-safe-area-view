@@ -11,22 +11,6 @@ import { doubleFromPercentString } from './utils';
 // https://github.com/zhetengbiji/safeAreaInsets/blob/master/src/index.ts
 const attrs = ['top', 'left', 'right', 'bottom'];
 
-function getSupportedTransitionEvent() {
-  const el = document.createElement('invalidtype');
-  const transitions = {
-    transition: 'transitionend',
-    OTransition: 'oTransitionEnd',
-    MozTransition: 'transitionend',
-    WebkitTransition: 'webkitTransitionEnd',
-  };
-
-  for (const t in transitions) {
-    if (el.style[t] !== undefined) {
-      return transitions[t];
-    }
-  }
-}
-
 function getSupportedEnv() {
   const { CSS } = window;
   if (
