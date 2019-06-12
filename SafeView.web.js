@@ -3,16 +3,13 @@ import { Animated } from 'react-native';
 
 import useSafeArea from './useSafeArea.web';
 
-export default function SafeView(props) {
-  const { forceInset = false, ...inputProps } = props;
-
-  const safeArea = useSafeArea();
+export default function SafeView({ forceInset = false, style, ...props }) {
+  const safeAreaStyle = useSafeArea();
   return (
     <Animated.View
-      ref={view}
       pointerEvents="box-none"
-      {...inputProps}
-      style={[style, safeArea]}
+      {...props}
+      style={[style, safeAreaStyle]}
     />
   );
 }
