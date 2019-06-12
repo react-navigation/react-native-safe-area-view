@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Animated } from 'react-native';
 
-import useSafeArea from './useSafeArea.web';
+import useSafeArea from './useSafeArea';
 
 export default function SafeView({ forceInset = false, style, ...props }) {
   const safeAreaStyle = useSafeArea();
