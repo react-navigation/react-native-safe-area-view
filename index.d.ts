@@ -16,6 +16,10 @@ export interface SafeAreaViewProps extends ViewProperties {
 
 export const getStatusBarHeight: (isLandscape?: boolean) => number;
 
+export const setStatusBarHeight: (height: number) => void;
+
+export const setStatusBarHidden: (hidden: boolean) => void;
+
 export const getInset: (
   key: 'top' | 'right' | 'bottom' | 'left',
   isLandscape?: boolean
