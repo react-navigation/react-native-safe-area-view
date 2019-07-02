@@ -27,3 +27,12 @@ declare export function getInset(
   value: 'horizontal' | 'right' | 'left' | 'vertical' | 'top' | 'bottom',
   isLandscape: boolean
 ): number
+
+export type SafeAreaPadding = {|
+  top: number,
+  bottom: number,
+  left: number,
+  right: number,
+|};
+
+declare export function useSafeArea(): SafeAreaPadding

@@ -30,3 +30,12 @@ export const withSafeArea: <P extends object>(
 ) => React.ComponentType<P & SafeAreaViewProps>;
 
 export default SafeAreaView;
+
+interface SafeAreaPadding {
+  top: number,
+  bottom: number,
+  left: number,
+  right: number,
+}
+
+export const useSafeArea: () => SafeAreaPadding;

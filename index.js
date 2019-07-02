@@ -1,4 +1,8 @@
-import React, { Component } from 'react';
+import React, {
+  Component,
+  useEffect,
+  useState,
+} from 'react';
 import {
   Dimensions,
   InteractionManager,
@@ -388,4 +392,32 @@ export const withSafeArea = function(forceInset = {}) {
 
     return hoistStatics(withSafeArea, WrappedComponent);
   };
+};
+
+export function useSafeArea() {
+  const { width, height } = getResolvedDimensions();
+  const landScape = width > height;
+  const [safeArea, setSafeArea] = useState({
+    left: getInset('left', landScape),
+    right: getInset('right', landScape),
+    top: getInset('top', landScape),
+    bottom: getInset('bottom', landScape),
+  });
+
+  const onChange = ({ width, height }) => {
+    const landScape = width > height;
+    setSafeArea({
+      left: getInset('left', landScape),
+      right: getInset('right', landScape),
+      top: getInset('top', landScape),
+      bottom: getInset('bottom', landScape),
+    });
+  };
+
+  useEffect(() => {
+    Dimensions.addEventListener('change', onChange);
+    return () => Dimensions.removeEventListener('change', onChange);
+  }, []);
+
+  return safeArea;
 };
