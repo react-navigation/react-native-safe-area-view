@@ -106,7 +106,7 @@ const statusBarHeight = isLandscape => {
     return _customStatusBarHidden ? 0 : 20;
   }
 
-  return (isLandscape || _customStatusBarHidden) ? 0 : 20;
+  return isLandscape || _customStatusBarHidden ? 0 : 20;
 };
 
 const doubleFromPercentString = percent => {
@@ -143,7 +143,7 @@ class SafeView extends Component {
   componentDidMount() {
     this._isMounted = true;
     InteractionManager.runAfterInteractions(() => {
-      this._onLayout();
+      this._updateMeasurements();
     });
   }
 
@@ -152,7 +152,7 @@ class SafeView extends Component {
   }
 
   componentDidUpdate() {
-    this._onLayout();
+    this._updateMeasurements();
   }
 
   render() {
@@ -165,13 +165,19 @@ class SafeView extends Component {
         ref={c => (this.view = c)}
         pointerEvents="box-none"
         {...props}
-        onLayout={this._onLayout}
+        onLayout={this._handleLayout}
         style={safeAreaStyle}
       />
     );
   }
 
-  _onLayout = (...args) => {
+  _handleLayout = e => {
+    if (this.props.onLayout) this.props.onLayout(e);
+
+    this._updateMeasurements();
+  };
+
+  _updateMeasurements = () => {
     if (!this._isMounted) return;
     if (!this.view) return;
 
@@ -217,8 +223,6 @@ class SafeView extends Component {
         viewWidth: winWidth,
         viewHeight: winHeight,
       });
-
-      if (this.props.onLayout) this.props.onLayout(...args);
     });
   };
 
