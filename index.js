@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {
   Dimensions,
   InteractionManager,
-  NativeModules,
   Platform,
   StyleSheet,
   Animated,
@@ -31,7 +30,7 @@ const getResolvedDimensions = () => {
 
 const { height: D_HEIGHT, width: D_WIDTH } = getResolvedDimensions();
 
-const { PlatformConstants = {} } = NativeModules;
+const PlatformConstants = Platform.constants || {};
 const { minor = 0 } = PlatformConstants.reactNativeVersion || {};
 
 const isIPhoneX = (() => {
