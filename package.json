@@ -1,39 +1,64 @@
 {
   "name": "react-native-safe-area-view",
-  "version": "0.14.7",
-  "description": "JS only version of SafeAreaView for supporting iPhone X safe area insets.",
-  "main": "index",
+  "description": "Add padding to your views to account for notches, home indicators, status bar, and possibly other future things.",
+  "version": "1.0.0-alpha.0",
+  "author": "Dave Pack (dpack3.0@gmail.com), Brent Vatne (brent@expo.io)",
+  "license": "MIT",
+  "keywords": [
+    "react-native",
+    "iPhoneX",
+    "SafeAreaView",
+    "safe area",
+    "notch"
+  ],
   "repository": {
     "url": "git@github.com:react-community/react-native-safe-area-view.git",
     "type": "git"
   },
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.tsx",
+  "types": "lib/typescript/src/index.d.ts",
   "files": [
-    "index.d.ts",
-    "index.js",
-    "index.js.flow",
-    "index.web.js",
-    "withOrientation.js",
-    "LICENSE"
+    "lib/",
+    "src/"
   ],
-  "scripts": {
-    "test": "test"
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   },
-  "keywords": [
-    "react-native",
-    "iPhoneX",
-    "SafeAreaView"
-  ],
-  "author": "Dave Pack (dpack3.0@gmail.com)",
-  "license": "MIT",
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true
+  },
+  "scripts": {
+    "test": "jest",
+    "typescript": "tsc --noEmit",
+    "prepare": "bob build",
+    "example": "yarn --cwd example",
+    "bootstrap": "yarn example && yarn"
+  },
   "dependencies": {
-    "hoist-non-react-statics": "^2.3.1"
+    "hoist-non-react-statics": "^2.3.1",
+    "react-native-safe-area-context": "~0.3.0"
   },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
   "devDependencies": {
-    "react": "16.2.0",
-    "react-native": "^0.52.0"
+    "@babel/core": "^7",
+    "@react-native-community/bob": "^0.6.1",
+    "@types/react": "~16.8",
+    "@types/react-native": "^0.60.7",
+    "prettier": "^1.18.2",
+    "react": "16.8.3",
+    "react-native": "^0.59.8",
+    "typescript": "^3.5.2"
   }
 }
