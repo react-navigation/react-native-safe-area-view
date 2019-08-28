@@ -1,6 +1,6 @@
 # react-native-safe-area-view
 
-_You are reading the README for 1.0.0-alpha! Unless you intend to be here, you should probably just read the README from the master branch_
+_You are reading the README for 1.0.0-alpha! Unless you intend to use an alpha release, you should probably just read the README from the [legacy](https://github.com/react-native-community/react-native-safe-area-view/tree/legacy) branch_
 
 This library provides automatic padding when a view intersects with a safe area (notch, status bar, home indicator).
 
