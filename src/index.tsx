@@ -10,6 +10,7 @@ import {
   ViewProperties,
 } from 'react-native';
 import {
+  EdgeInsets,
   SafeAreaContext,
   SafeAreaProvider,
   SafeAreaConsumer,
@@ -17,12 +18,7 @@ import {
 } from 'react-native-safe-area-context';
 
 // Re-export react-native-safe-area-context utilities
-export {
-  useSafeArea,
-  SafeAreaProvider,
-  SafeAreaConsumer,
-  SafeAreaContext,
-};
+export { useSafeArea, SafeAreaProvider, SafeAreaConsumer, SafeAreaContext };
 
 export type ForceInsetValue = 'always' | 'never';
 export type ForceInsetProp = {
@@ -268,7 +264,17 @@ export default class SafeAreaView extends React.Component<Props, State> {
   };
 
   _getInset = (key: keyof ForceInsetProp) => {
-    return this.context[key];
+    if (this.context === null) {
+      throw new Error(
+        '<SafeAreaView /> must be wrapped by react-native-safe-area-context <SafeAreaProvider />'
+      );
+    } else if (key === 'horizontal') {
+      return Math.max(this.context.left, this.context.right);
+    } else if (key === 'vertical') {
+      return Math.max(this.context.top, this.context.bottom);
+    } else {
+      return this.context[key as keyof EdgeInsets];
+    }
   };
 }
 
@@ -297,4 +303,3 @@ function doubleFromPercentString(percent: string): number {
 function getKeys<T extends {}>(object: T): Array<keyof T> {
   return Object.keys(object) as Array<keyof T>;
 }
-
