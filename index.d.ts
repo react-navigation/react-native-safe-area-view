@@ -21,7 +21,7 @@ export const getInset: (
   isLandscape?: boolean
 ) => number;
 
-export const SafeAreaView: ComponentClass<SafeAreaViewProps> & {
+declare const SafeAreaView: ComponentClass<SafeAreaViewProps> & {
   setStatusBarHeight: (height: number) => void;
   setStatusBarHidden: (hidden: boolean) => void;
 };
