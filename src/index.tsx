@@ -17,6 +17,8 @@ import {
   useSafeArea,
 } from 'react-native-safe-area-context';
 
+import shallowEquals from './shallowEquals';
+
 // Re-export react-native-safe-area-context utilities
 export { useSafeArea, SafeAreaProvider, SafeAreaConsumer, SafeAreaContext };
 
@@ -75,12 +77,6 @@ export default class SafeAreaView extends React.Component<Props, State> {
     this._isMounted = false;
   }
 
-  // note(brentvatne): it is unclear to me whether this is actually important 🤔
-  // we should probably only update when the props change or when the context changes
-  componentDidUpdate() {
-    this._updateMeasurements();
-  }
-
   render() {
     const { forceInset = false, style, ...props } = this.props;
 
@@ -109,12 +105,10 @@ export default class SafeAreaView extends React.Component<Props, State> {
 
     this._view.current
       .getNode()
-      .measureInWindow((winX, winY, winWidth, winHeight) => {
+      .measureInWindow((realX, realY, winWidth, winHeight) => {
         if (!this._view.current) {
           return;
         }
-        let realY = winY;
-        let realX = winX;
 
         if (realY >= HEIGHT) {
           realY = realY % HEIGHT;
@@ -128,19 +122,18 @@ export default class SafeAreaView extends React.Component<Props, State> {
           realX = (realX % WIDTH) + WIDTH;
         }
 
-        const touchesTop = realY === 0;
-        const touchesBottom = realY + winHeight >= HEIGHT;
-        const touchesLeft = realX === 0;
-        const touchesRight = realX + winWidth >= WIDTH;
-
-        this.setState({
-          touchesTop,
-          touchesBottom,
-          touchesLeft,
-          touchesRight,
+        let nextState = {
+          touchesTop: realY === 0,
+          touchesBottom: realY + winHeight >= HEIGHT,
+          touchesLeft: realX === 0,
+          touchesRight: realX + winWidth >= WIDTH,
           viewWidth: winWidth,
           viewHeight: winHeight,
-        });
+        };
+
+        if (!shallowEquals(nextState, this.state)) {
+          this.setState(nextState);
+        }
       });
   };
 
