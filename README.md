@@ -1,27 +1,28 @@
 # react-native-safe-area-view
 
-_You are reading the README for 1.0.0-alpha! Unless you intend to use an alpha release, you should probably just read the README from the [legacy](https://github.com/react-native-community/react-native-safe-area-view/tree/legacy) branch_
-
 This library provides automatic padding when a view intersects with a safe area (notch, status bar, home indicator).
+
+> _You are reading the README for 1.0.0! Please note that the API has changed in 1.0, released on September 26, 2019, see the [CHANGELOG](https://github.com/react-native-community/react-native-safe-area-view/blob/master/CHANGELOG.md) for more information. If you are using Expo SDK <= 34 you will need to use the [legacy](https://github.com/react-native-community/react-native-safe-area-view/tree/legacy) branch._.
 
 ## Installation
 
+### In the Expo managed workflow:
+
+```
+expo install react-native-safe-area-view react-native-safe-area-context
+```
+
+### In bare React Native projects:
+
 ```
 yarn add react-native-safe-area-view react-native-safe-area-context
-
-# or if you use npm
-npm install react-native-safe-area-view react-native-safe-area-context
 ```
 
-If you are using the Expo >= SDK 35, you are done!
-
-If you have a bare React Native project, you need to link `react-native-safe-area-context`. If you are using autolinking, just run `pod install` again. If not, follow [these instructions](https://github.com/th3rdwave/react-native-safe-area-context#getting-started).
+Next, you need to link `react-native-safe-area-context`. If you are using autolinking, run `pod install` again. If not, follow [these instructions](https://github.com/th3rdwave/react-native-safe-area-context#getting-started). Then re-build your app binary.
 
 ## Usage
 
 First you need to wrap the root of your app with the `SafeAreaProvider`.
-
-**Note:** If you are using react-navigation@>=4 this will be done for you &mdash; you do not need to add the `SafeAreaProvider` in that case.
 
 ```js
 import * as React from 'react';
