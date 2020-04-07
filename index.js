@@ -189,7 +189,10 @@ class SafeView extends Component {
 
     const { width: WIDTH, height: HEIGHT } = getResolvedDimensions();
 
-    this.view.getNode().measureInWindow((winX, winY, winWidth, winHeight) => {
+    // getNode() is not necessary in newer versions of React Native
+    const node = typeof this.view.measureInWindow === 'function' ? this.view : this.view.getNode();
+
+    node.measureInWindow((winX, winY, winWidth, winHeight) => {
       if (!this.view) {
         return;
       }
