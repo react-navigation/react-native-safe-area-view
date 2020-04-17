@@ -4,6 +4,7 @@ import {
   Dimensions,
   InteractionManager,
   LayoutChangeEvent,
+  Platform,
   StyleSheet,
   View,
   ViewStyle,
@@ -105,7 +106,11 @@ export default class SafeAreaView extends React.Component<Props, State> {
 
     const { width: WIDTH, height: HEIGHT } = getResolvedDimensions();
 
-    this._view.current.measureInWindow((realX, realY, winWidth, winHeight) => {
+    // calling getNode on the ref is no longer necessary in the future
+    const view = this._view.current.measureInWindow
+      ? this._view.current
+      : this._view.current.getNode();
+    view.measureInWindow((realX, realY, winWidth, winHeight) => {
       if (!this._view.current) {
         return;
       }
