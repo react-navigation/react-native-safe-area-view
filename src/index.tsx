@@ -4,7 +4,6 @@ import {
   Dimensions,
   InteractionManager,
   LayoutChangeEvent,
-  Platform,
   StyleSheet,
   View,
   ViewStyle,
