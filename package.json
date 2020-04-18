@@ -55,11 +55,11 @@
     "@babel/core": "^7",
     "@react-native-community/bob": "^0.6.1",
     "@types/react": "~16.8",
-    "@types/react-native": "^0.60.7",
+    "@types/react-native": "^0.62.1",
     "prettier": "^1.18.2",
     "react": "16.8.3",
-    "react-native": "^0.59.8",
+    "react-native": "^0.62.0",
     "react-native-safe-area-context": "^0.3.5",
-    "typescript": "^3.5.2"
+    "typescript": "^3.8.3"
   }
 }
