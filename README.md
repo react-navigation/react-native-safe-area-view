@@ -2,8 +2,6 @@
 
 This library provides automatic padding when a view intersects with a safe area (notch, status bar, home indicator).
 
-> _You are reading the README for 1.0.0! Please note that the API has changed in 1.0, released on September 26, 2019, see the [CHANGELOG](https://github.com/react-native-community/react-native-safe-area-view/blob/master/CHANGELOG.md) for more information. If you are using Expo SDK <= 34 you will need to use the [legacy](https://github.com/react-native-community/react-native-safe-area-view/tree/legacy) branch._.
-
 ## Installation
 
 ### In the Expo managed workflow:

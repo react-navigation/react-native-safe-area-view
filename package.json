@@ -1,7 +1,7 @@
 {
   "name": "react-native-safe-area-view",
   "description": "Add padding to your views to account for notches, home indicators, status bar, and possibly other future things.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Dave Pack (dpack3.0@gmail.com), Brent Vatne (brent@expo.io)",
   "license": "MIT",
   "keywords": [
