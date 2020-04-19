@@ -58,8 +58,8 @@
     "@types/react-native": "^0.62.1",
     "prettier": "^1.18.2",
     "react": "16.8.3",
-    "react-native": "^0.62.0",
-    "react-native-safe-area-context": "^0.3.5",
+    "react-native": "~0.61.4",
+    "react-native-safe-area-context": "0.7.3",
     "typescript": "^3.8.3"
   }
 }

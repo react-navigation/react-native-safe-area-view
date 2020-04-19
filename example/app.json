@@ -1,17 +1,14 @@
 {
-  "name": "SafeAreaViewExample",
-  "displayName": "Safe Area View Example",
   "expo": {
     "name": "SafeAreaViewExample",
-    "slug": "expo-template-bare",
-    "privacy": "unlisted",
-    "sdkVersion": "34.0.0",
-    "version": "1.0.0",
-    "entryPoint": "node_modules/expo/AppEntry.js",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ]
+    "ios": {
+      "bundleIdentifier": "io.expo.safeareaviewexample"
+    },
+    "android": {
+      "package": "io.expo.safeareaviewexample"
+    },
+    "packagerOpts": {
+      "config": "metro.config.js"
+    }
   }
 }

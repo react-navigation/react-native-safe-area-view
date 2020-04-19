@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Safe Area View Example</string>
+	<string>SafeAreaViewExample</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,36 +17,17 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
-    <key>NSAllowsArbitraryLoads</key>
-    <true/>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -57,26 +38,43 @@
 		</dict>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>Allow Safe Area View Example to access your calendar</string>
+	<string>Allow SafeAreaViewExample to access your calendar</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Allow Safe Area View Example to use the camera</string>
+	<string>Allow SafeAreaViewExample to use the camera</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Allow Safe Area View Example experiences to access your contacts</string>
+	<string>Allow SafeAreaViewExample experiences to access your contacts</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow Safe Area View Example to use your location</string>
+	<string>Allow SafeAreaViewExample to use your location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Allow Safe Area View Example to use your location</string>
+	<string>Allow SafeAreaViewExample to use your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow Safe Area View Example to use your location</string>
+	<string>Allow SafeAreaViewExample to use your location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Allow Safe Area View Example to access your microphone</string>
+	<string>Allow SafeAreaViewExample to access your microphone</string>
 	<key>NSMotionUsageDescription</key>
-	<string>Allow Safe Area View Example to access your device's accelerometer</string>
+	<string>Allow SafeAreaViewExample to access your device's accelerometer</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Give Safe Area View Example periences permission to save photos</string>
+	<string>Give SafeAreaViewExample periences permission to save photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Give Safe Area View Example periences permission to access your photos</string>
+	<string>Give SafeAreaViewExample periences permission to access your photos</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>Allow Safe Area View Example to access your reminders</string>
+	<string>Allow SafeAreaViewExample to access your reminders</string>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

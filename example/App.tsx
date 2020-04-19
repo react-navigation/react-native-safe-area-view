@@ -7,7 +7,7 @@ function App() {
   const insets = useSafeArea();
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container}>
         <Text>{JSON.stringify(insets)}</Text>
       </View>
