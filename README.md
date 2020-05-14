@@ -16,7 +16,7 @@ expo install react-native-safe-area-view react-native-safe-area-context
 yarn add react-native-safe-area-view react-native-safe-area-context
 ```
 
-Next, you need to link `react-native-safe-area-context`. If you are using autolinking, run `pod install` again. If not, follow [these instructions](https://github.com/th3rdwave/react-native-safe-area-context#getting-started). Then re-build your app binary.
+Next, you need to link `react-native-safe-area-context`. If you are using autolinking, run `npx pod-install` again. If not, follow [these instructions](https://github.com/th3rdwave/react-native-safe-area-context#getting-started). Then re-build your app binary.
 
 ## Usage
 
