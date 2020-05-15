@@ -4,6 +4,8 @@ This library provides automatic padding when a view intersects with a safe area 
 
 ## Installation
 
+> 💡 The `latest` release is currently marked as 1.1.1 and depends on react-native-safe-area-context@^0.7.3. To use react-native-safe-area-context@^1.0.0, you will need to install react-native-safe-area-view@2.0.0 - this currently has the `next` tag on npm.
+
 ### In the Expo managed workflow:
 
 ```
