@@ -37,8 +37,9 @@
     "singleQuote": true
   },
   "scripts": {
-    "test": "jest",
+    "test": "yarn validate:prettier && yarn typescript",
     "typescript": "tsc --noEmit",
+    "validate:prettier": "npx prettier \"src/**/*.{js,ts,tsx}\" \"example/**/*.{js,ts,tsx}\" --check",
     "prepare": "bob build",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn"
