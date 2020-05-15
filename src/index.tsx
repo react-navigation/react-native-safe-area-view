@@ -11,16 +11,24 @@ import {
 } from 'react-native';
 import {
   EdgeInsets,
-  SafeAreaContext,
-  SafeAreaProvider,
   SafeAreaConsumer,
+  SafeAreaInsetsContext,
+  SafeAreaProvider,
   useSafeArea,
+  useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
 import shallowEquals from './shallowEquals';
 
 // Re-export react-native-safe-area-context utilities
-export { useSafeArea, SafeAreaProvider, SafeAreaConsumer, SafeAreaContext };
+export {
+  useSafeAreaInsets,
+  SafeAreaProvider,
+  SafeAreaInsetsContext,
+  // Deprecated:
+  useSafeArea,
+  SafeAreaConsumer,
+};
 
 export type ForceInsetValue = 'always' | 'never';
 export type ForceInsetProp = {
@@ -53,8 +61,8 @@ interface AnimatedView extends Animated.AnimatedComponent<View> {
 }
 
 export default class SafeAreaView extends React.Component<Props, State> {
-  static contextType: any = SafeAreaContext;
-  context!: React.ContextType<typeof SafeAreaContext>;
+  static contextType: any = SafeAreaInsetsContext;
+  context!: React.ContextType<typeof SafeAreaInsetsContext>;
   private _isMounted: boolean = false;
   private _view = React.createRef<AnimatedView>();
 
