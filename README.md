@@ -1,5 +1,9 @@
 # react-native-safe-area-view
 
+> ⚠️ **This library is deprecated.** It is no longer used in React Navigation and it has been succeeded by the *excellent* [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context). Please use react-native-safe-area-context instead, or you are likely to have a bad time.
+
+<hr />
+
 This library provides automatic padding when a view intersects with a safe area (notch, status bar, home indicator).
 
 ## Installation
