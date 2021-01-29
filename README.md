@@ -45,7 +45,7 @@ export default function App() {
 Now you can wrap components that touch any edge of the screen with a `SafeAreaView`.
 
 ```jsx
-import { SafeAreaView } from 'react-native-safe-area-view';
+import SafeAreaView from 'react-native-safe-area-view';
 
 export default function MyAwesomeApp() {
   return (
